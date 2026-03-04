@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>AI Emotion Detection</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1> AI Emotion Detector</h1>
+
+<p>Upload a face image to detect emotion</p>
+
+<input type="file" id="imageInput">
+
+<br><br>
+
+<button onclick="predictEmotion()">Detect Emotion</button>
+
+<h2 id="result"></h2>
+
+</div>
+
+<script>
+
+function predictEmotion(){
+
+let fileInput = document.getElementById("imageInput").files[0]
+
+let formData = new FormData()
+
+formData.append("image", fileInput)
+
+fetch("http://127.0.0.1:5000/predict",{
+
+method:"POST",
+body:formData
+
+})
+
+.then(res=>res.json())
+
+.then(data=>{
+
+document.getElementById("result").innerHTML =
+"Detected Emotion: " + data.Emotion
+
+})
+
+}
+
+</script>
+
+</body>
+</html>
