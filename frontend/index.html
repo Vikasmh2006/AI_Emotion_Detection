@@ -58,7 +58,7 @@ formData.append("image", fileInput)
 
 document.getElementById("result").innerHTML = "Detecting emotion..."
 
-fetch("http://127.0.0.1:5000/predict",{
+fetch("https://ai-emotion-detection-jg7u.onrender.com",{
 
 method:"POST",
 body:formData
