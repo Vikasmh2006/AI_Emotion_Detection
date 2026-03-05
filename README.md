@@ -1,49 +1,98 @@
-AI Emotion Detection Project
+# AI Emotion Detection System 
 
-Project Description:
-This project uses Deep Learning and Computer Vision to detect human facial emotions in real time. 
-The model is trained using the FER2013 dataset and predicts emotions such as angry, happy, sad, surprise, fear, disgust and neutral.
+This project detects human emotions from facial images using a Deep Learning Convolutional Neural Network (CNN).  
+Users can upload an image and the system predicts the emotion.
 
-Technologies Used:
+---
+
+## Features
+
+- Detects 7 human emotions
+- Uses CNN deep learning model
+- Image upload from web interface
+- Real-time emotion detection using OpenCV
+- Flask API backend
+- Colorful HTML/CSS frontend
+
+---
+
+## Emotions Detected
+
+- Angry
+- Disgust
+- Fear
+- Happy
+- Neutral
+- Sad
+- Surprise
+
+---
+
+## Technologies Used
+
 - Python
 - TensorFlow / Keras
 - OpenCV
-- NumPy
-- Matplotlib
+- Flask
+- HTML
+- CSS
+- JavaScript
 
-Dataset:
-FER2013 Facial Emotion Dataset
+---
 
---------------------------------------------------
-- Set up project folder
-- Created virtual environment
-- Installed TensorFlow, OpenCV and required libraries
-- Downloaded and organized FER2013 dataset
---------------------------------------------------
-- Implemented image preprocessing
-- Loaded dataset using ImageDataGenerator
-- Created training and validation datasets
-- Resized images to 48x48 grayscale
---------------------------------------------------
-- Built Convolutional Neural Network (CNN) model
-- Added Conv2D, MaxPooling, Dropout, and Dense layers
-- Trained model on FER emotion dataset
-- Achieved ~50% validation accuracy
-- Saved trained model as emotion_model.h5
---------------------------------------------------
-- Loaded trained CNN model
-- Processed test images using OpenCV
-- Predicted emotion using trained model
-- Verified emotion detection output
---------------------------------------------------
-- Implemented real-time emotion detection
-- Used OpenCV for face detection
-- Integrated trained CNN model with webcam input
-- Displayed predicted emotions on live video feed
---------------------------------------------------
-- Built Flask backend API
-- Created /predict endpoint for emotion detection
-- Integrated trained CNN model with Flask
-- Tested API using Postman with image upload
-- Successfully received emotion prediction response
---------------------------------------------------
+## Project Structure
+
+```
+AI_Emotion_Detection
+│
+├── train_model.py
+├── real_time_detection.py
+├── app.py
+├── emotion_model.h5
+│
+├── frontend
+│   ├── index.html
+│   └── style.css
+│
+└── dataset
+```
+
+---
+
+## How It Works
+
+```
+User Upload Image
+        ↓
+Frontend (HTML + JS)
+        ↓
+Flask API (/predict)
+        ↓
+CNN Deep Learning Model
+        ↓
+Emotion Prediction
+        ↓
+Displayed on Webpage
+```
+
+---
+
+## Dataset
+
+FER2013 Facial Expression Dataset
+
+---
+
+## Future Improvements
+
+- Deploy project online
+- Improve CNN accuracy
+- Add real-time webcam detection in web app
+- Use larger datasets
+
+---
+
+## Author
+
+Vikas MH  
+AI & Data Science Student
