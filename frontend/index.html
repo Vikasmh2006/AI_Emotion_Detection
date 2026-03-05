@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-
-<title>AI Emotion Detection</title>
-
+<title>AI Emotion Detector</title>
 <link rel="stylesheet" href="style.css">
-
 </head>
 
 <body>
@@ -16,17 +14,39 @@
 
 <p>Upload a face image to detect emotion</p>
 
-<input type="file" id="imageInput">
+<input type="file" id="imageInput" onchange="previewImage()">
+
+<br><br>
+
+<img id="preview" width="200">
 
 <br><br>
 
 <button onclick="predictEmotion()">Detect Emotion</button>
 
+<div id="resultBox">
 <h2 id="result"></h2>
+</div>
 
 </div>
 
 <script>
+
+function previewImage(){
+
+let file = document.getElementById("imageInput").files[0]
+
+let reader = new FileReader()
+
+reader.onload = function(e){
+
+document.getElementById("preview").src = e.target.result
+
+}
+
+reader.readAsDataURL(file)
+
+}
 
 function predictEmotion(){
 
@@ -35,6 +55,8 @@ let fileInput = document.getElementById("imageInput").files[0]
 let formData = new FormData()
 
 formData.append("image", fileInput)
+
+document.getElementById("result").innerHTML = "Detecting emotion..."
 
 fetch("http://127.0.0.1:5000/predict",{
 
@@ -47,8 +69,19 @@ body:formData
 
 .then(data=>{
 
+let emoji = {
+"Happy":"😊",
+"Sad":"😢",
+"Angry":"😠",
+"Surprise":"😲",
+"Neutral":"😐",
+"Fear":"😨",
+"Disgust":"🤢"
+}
+
 document.getElementById("result").innerHTML =
-"Detected Emotion: " + data.Emotion
+"Emotion: " + data.Emotion + " " + emoji[data.Emotion] +
+"<br>Confidence: " + data.Confidence + "%"
 
 })
 

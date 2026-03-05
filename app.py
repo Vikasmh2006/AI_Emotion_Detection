@@ -5,7 +5,7 @@ from tensorflow.keras.models import load_model
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app) 
+CORS(app)
 
 # Load trained model
 model = load_model("emotion_model.h5")
@@ -42,7 +42,12 @@ def predict():
 
     emotion = emotion_labels[emotion_index]
 
-    return jsonify({"Emotion": emotion})
+    confidence = float(np.max(prediction)) * 100
+
+    return jsonify({
+        "Emotion": emotion,
+        "Confidence": round(confidence,2)
+    })
 
 if __name__ == "__main__":
     app.run(debug=True)
