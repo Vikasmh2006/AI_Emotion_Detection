@@ -92,6 +92,16 @@ FER2013 Facial Expression Dataset
 
 ---
 
+## Screenshots
+
+### Homepage
+![Homepage](screenshots/homepage.png)
+
+### Emotion Detection Result
+![Result](screenshots/result.png)
+
+
+
 ## Author
 
 Vikas MH  
